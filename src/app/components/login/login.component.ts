@@ -18,10 +18,15 @@ export class LoginComponent {
     password: new FormControl('', [Validators.required])
   });
 
+  res!:any;
+
   login(){
-    debugger;
     if(!this.loginForm.valid)
       return;
     this._http.login(this.loginForm.value)
+      .subscribe( (res:any) =>{
+        this.res = res;
+      })
+
   }
 }
