@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+}
+
+.left, .right {
+    flex: 1; /* Ambos ocupan el mismo espacio */
+    height: 100%; /* Ocupa toda la altura del contenedor */
+}
+
+.left {
+    background-color: blue; /* Color de fondo de la mitad izquierda */
+}
+
+.right {
+    background-color: red; /* Color de fondo de la mitad derecha */
+}
