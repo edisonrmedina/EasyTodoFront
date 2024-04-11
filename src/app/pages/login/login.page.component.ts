@@ -10,5 +10,5 @@ import { LoginComponent } from '../../components/login/login.component';
     imports: [MaterialModuleModule,LoginComponent]
 })
 export class LoginPageComponent {
-
+    
 }
