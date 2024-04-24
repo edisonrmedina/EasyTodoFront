@@ -13,13 +13,8 @@ export class LoginService {
   
   constructor(private http: HttpClient) { }
   
-  login(user:UserLogin): Observable<User[]> {
+  login(user:UserLogin): Observable<string> {
     // Cambia la URL a la correcta
-    let a = this.http.get('http://localhost:5181/api/v1/users'
-    ).subscribe(
-      resp => console.log(resp)
-    );
-    console.log(a);
-    return this._netWork.post('http://localhost:5100/api/v1/auth/',user) as Observable<User[]>;
+      return this._netWork.post('http://localhost:5181/api/v1/auth',user);
   }
 }

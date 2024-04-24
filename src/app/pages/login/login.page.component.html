@@ -1,14 +1,19 @@
 <div class="container">
-    <div class="left">
-        <div class="innerleft">
-            <div class="logo-left"></div>
-            <div class="description"></div>
-            <div class="third-login">
-                <!-- Login terceros -->
+    <div class="container-top">
+        <a [routerLink]="['/app/user']" routerLinkActive="router-link-active">a</a>
+    </div>
+    <div class="container-mid">
+        <div class="left">
+            <div class="innerleft">
+                <div class="logo-left"></div>
+                <div class="description"></div>
+                <div class="third-login">
+                    <!-- Login terceros -->
+                </div>
             </div>
         </div>
-    </div>
-    <div class="right">
-        <login-easy-todo></login-easy-todo>
+        <div class="right">
+            <login-easy-todo></login-easy-todo>
+        </div>
     </div>
 </div>

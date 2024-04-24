@@ -1,9 +1,31 @@
 .container {
     display: flex;
-    height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+    flex-direction: column;
+    height: 100vh;
 }
 
-.left, .right {
-    flex: 1; /* Ambos ocupan el mismo espacio */
-    height: 100%; /* Ocupa toda la altura del contenedor */
+.container-top {
+    flex: 0 0 10%;
+}
+
+.container-mid {
+    flex: 1;
+    display: flex;
+}
+
+.left,
+.right {
+    flex: 1;
+}
+
+.innerleft {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }

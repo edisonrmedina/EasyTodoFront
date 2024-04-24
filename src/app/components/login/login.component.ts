@@ -12,7 +12,7 @@ import { LoginService } from '../../services/login.service';
 @Component({
   selector: 'login-easy-todo',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule,],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -38,10 +38,14 @@ export class LoginComponent {
     if (!this.validateUserLogin(this.userLogin)) {
       return;
     }
-    debugger;
+
     this._http.login(this.userLogin).subscribe((res: any) => {
       this.res = res;
+      if (res.token){
+
+      }
     });
+
   }
 
   /**Agregar validaciones internas propias */
