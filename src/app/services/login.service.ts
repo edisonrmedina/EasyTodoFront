@@ -1,9 +1,9 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
+import { NetworkManagerServiceService } from '../commons/network/network-manager-service.service';
 import { User } from '../interfaces/user.interface';
 import { UserLogin } from '../interfaces/user.login.interface';
-import { NetworkManagerServiceService } from '../commons/network/network-manager-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,11 @@ export class LoginService {
   
   login(user:UserLogin): Observable<User[]> {
     // Cambia la URL a la correcta
-    return this._netWork.get('http://localhost:5100/api/v1/user') as Observable<User[]>;
+    let a = this.http.get('http://localhost:5181/api/v1/users'
+    ).subscribe(
+      resp => console.log(resp)
+    );
+    console.log(a);
+    return this._netWork.post('http://localhost:5100/api/v1/auth/',user) as Observable<User[]>;
   }
 }

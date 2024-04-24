@@ -6,9 +6,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { LoginService } from '../../services/login.service';
-import { User } from '../../interfaces/user.interface';
 import { UserLogin } from '../../interfaces/user.login.interface';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'login-easy-todo',
@@ -22,12 +21,12 @@ export class LoginComponent {
 
   //TODO: change language and pass encryption
   userLogin: UserLogin = {
-    user: '',
+    email: '',
     password: '',
   };
 
   loginForm = new FormGroup({
-    username: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
   });
 
@@ -39,7 +38,7 @@ export class LoginComponent {
     if (!this.validateUserLogin(this.userLogin)) {
       return;
     }
-
+    debugger;
     this._http.login(this.userLogin).subscribe((res: any) => {
       this.res = res;
     });
@@ -47,7 +46,7 @@ export class LoginComponent {
 
   /**Agregar validaciones internas propias */
   validateUserLogin(userLogin: UserLogin) {
-    this.userLogin.user = this.loginForm.value.username || '';
+    this.userLogin.email = this.loginForm.value.email || '';
     this.userLogin.password = this.loginForm.value.password || '';
     return true;
   }
