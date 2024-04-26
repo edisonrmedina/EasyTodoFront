@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -8,15 +8,18 @@ import {
 } from '@angular/forms';
 import { UserLogin } from '../../interfaces/user.login.interface';
 import { LoginService } from '../../services/login.service';
+import { AuthResponse } from '../../interfaces/authResponse.interface';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'login-easy-todo',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule,],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  private router = inject(Router);
   constructor(private _http: LoginService) {}
 
   //TODO: change language and pass encryption
@@ -39,11 +42,20 @@ export class LoginComponent {
       return;
     }
 
-    this._http.login(this.userLogin).subscribe((res: any) => {
+    this._http.login(this.userLogin).subscribe((res: AuthResponse) => {
+      debugger;
       this.res = res;
-      if (res.token){
-
-      }
+      if (!res.token)
+        return
+      localStorage.setItem('token', res.token); //idUsuario
+      localStorage.setItem('idUsuario',res.idUsuario); //
+      const navigationExtras: NavigationExtras = {
+        queryParams: {
+          idUsuario: res.idUsuario
+        }
+      };
+      
+      this.router.navigate(['app/projects'], navigationExtras);
     });
 
   }

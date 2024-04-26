@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { NetworkManagerServiceService } from '../commons/network/network-manager-service.service';
 import { User } from '../interfaces/user.interface';
 import { UserLogin } from '../interfaces/user.login.interface';
+import { AuthResponse } from '../interfaces/authResponse.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class LoginService {
   
   constructor(private http: HttpClient) { }
   
-  login(user:UserLogin): Observable<string> {
+  login(user:UserLogin): Observable<AuthResponse> {
     // Cambia la URL a la correcta
       return this._netWork.post('http://localhost:5181/api/v1/auth',user);
   }
