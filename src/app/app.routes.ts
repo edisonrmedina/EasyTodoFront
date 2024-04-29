@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { EditUserComponent } from './components/user/edit.project/edit.user.component';
-import { ListUserComponent } from './components/user/list.project/list.user.component';
+import { EditUserComponent } from './components/Projects/edit.project/edit.user.component';
+import { ListUserComponent } from './components/Projects/list.project/list.user.component';
 import { LoginPageComponent } from './pages/login/login.page.component';
-import { authGuardsGuard } from './guards/auth.guards.guard';
+import { authGuardsGuard } from './seguridad/guards/auth.guards.guard';
 import { AutorizaComponent } from './pages/autoriza/autoriza.component';
 
 export const routes: Routes = [
@@ -16,7 +16,6 @@ export const routes: Routes = [
             {
                 path:"projects",
                 component: ListUserComponent,
-                
             }
         ],
         

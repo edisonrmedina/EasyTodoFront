@@ -1,6 +1,8 @@
 <div class="container">
     <div class="container-top">
-        <a [routerLink]="['/app/user']" routerLinkActive="router-link-active">a</a>
+        <a [routerLink]="['/app/user']" routerLinkActive="router-link-active">
+            TodoApp
+        </a>
     </div>
     <div class="container-mid">
         <div class="left">
@@ -10,10 +12,15 @@
                 <div class="third-login">
                     <!-- Login terceros -->
                 </div>
+                <login-easy-todo></login-easy-todo>
             </div>
+            <ng-template #elseTemplate>
+                
+            </ng-template>
+            
         </div>
         <div class="right">
-            <login-easy-todo></login-easy-todo>
+            
         </div>
     </div>
 </div>

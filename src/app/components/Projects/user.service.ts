@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { NetworkManagerServiceService } from '../../commons/network/network-manager-service.service';
+import { NetworkManagerServiceService } from '../../commons/network/network.manager.service';
 import { User } from '../../interfaces/user.interface';
 import { Project } from '../../interfaces/project.interfce';
 

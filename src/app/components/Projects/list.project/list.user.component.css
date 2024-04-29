@@ -1,0 +1,9 @@
+.left-container {
+    float: left;
+    width: 50%;
+}
+
+.rigth-container {
+    float: right;
+    width: 50%;
+}
