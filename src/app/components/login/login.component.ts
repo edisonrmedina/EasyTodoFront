@@ -34,6 +34,7 @@ export class LoginComponent {
     email: '',
     contrasena: '',
   };
+
   userRegister : UserRegister = {
     email: '',
     contrasena: '',
@@ -68,12 +69,13 @@ export class LoginComponent {
           }
         };
         
+        
         this.router.navigate(['app/projects'], navigationExtras);
       });
     }else{
       //seria bueno preparar un proceso de onBoarding
       this._http.register(this.userLogin).subscribe((res:User)=> {
-        //crear token
+        
         console.log(res);
 
       }

@@ -4,6 +4,7 @@ import { ListUserComponent } from './components/Projects/list.project/list.user.
 import { LoginPageComponent } from './pages/login/login.page.component';
 import { authGuardsGuard } from './seguridad/guards/auth.guards.guard';
 import { AutorizaComponent } from './pages/autoriza/autoriza.component';
+import { allowPageGuard } from './seguridad/guards/allow.page.guard';
 
 export const routes: Routes = [
     /* la idea aca es modularizar como si fuera el bakc igual, por capacidades de negocio , 
@@ -15,7 +16,9 @@ export const routes: Routes = [
         children :[
             {
                 path:"projects",
-                component: ListUserComponent,
+                component: ListUserComponent, 
+                canActivate: [ allowPageGuard],
+                data : {"id":1}
             }
         ],
         
