@@ -14,7 +14,7 @@ export class UserService {
   getUsers(): Observable<User[]>{
     return this.networkManager.get('http://localhost:5181/api/v1/users') as Observable<User[]>;
   }
-  getProjectsUsers(id:string): Observable<Project[]>{
+  getProjectsUsers(): Observable<Project[]>{
     return this.networkManager.get('http://localhost:5181/api/v1/proyectos/proyectsUser') as Observable<Project[]>;
   }
 

@@ -29,12 +29,10 @@ export class ListUserComponent implements OnInit , OnDestroy {
   ngOnInit(): void {
     //pudimos haber tomado el token del localStorage
     this.activeRoute.queryParams.subscribe(params  => {
-      this.idUsuario = params['idUsuario'];
-      debugger;
-
-        this._http.getProjectsUsers(this.idUsuario,).subscribe(
+      // this.idUsuario = params['idUsuario'];
+debugger;
+        this._http.getProjectsUsers().subscribe(
         (data: Project[]) => {
-          debugger
         this.proyectsList = data;
         data.forEach(project => {
           this.tasks.push(...project.Tareas);

@@ -56,21 +56,20 @@ export class LoginComponent {
 
     if(!this.registered){
       this._http.login(this.userLogin).subscribe((res: AuthResponse) => {
-        debugger;
         this.res = res;
         if (!res.token)
           return
 
         this.storage.asignar('token', res.token);
         this.storage.asignar('idUsuario',res.idUsuario);
-        const navigationExtras: NavigationExtras = {
-          queryParams: {
-            idUsuario: res.idUsuario
-          }
-        };
+        // const navigationExtras: NavigationExtras = {
+        //   queryParams: {
+        //     idUsuario: res.idUsuario
+        //   }
+        // };
         
         
-        this.router.navigate(['app/projects'], navigationExtras);
+        this.router.navigate(['app/projects']);
       });
     }else{
       //seria bueno preparar un proceso de onBoarding
