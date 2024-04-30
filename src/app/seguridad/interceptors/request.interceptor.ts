@@ -1,21 +1,20 @@
 import { HttpInterceptorFn } from '@angular/common/http';
-import { Inject } from '@angular/core';
+import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { SecurcityManagerService } from '../exploresManager/securcity-manager.service';
 
-export const interceptorsInterceptor: HttpInterceptorFn = (req, next) => {
-  const router = Inject(Router);
-  const storage = Inject(SecurcityManagerService);
+export const requestInterceptor: HttpInterceptorFn = (req, next) => {
 
-  if(storage.getItem('token')){
+ const storage = inject(SecurcityManagerService);
+  if(storage.recuperar('token')){
     const newReq = req.clone({
       setHeaders:{
-        'Authorization': 'Bearer ' + storage.getItem('token'),
+        'Authorization': 'Bearer ' + storage.recuperar('token'),
       }
     })
     return next(newReq);
   }  
   
+
   return next(req)
-  
 };

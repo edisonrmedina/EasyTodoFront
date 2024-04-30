@@ -30,7 +30,7 @@ export class ListUserComponent implements OnInit , OnDestroy {
     //pudimos haber tomado el token del localStorage
     this.activeRoute.queryParams.subscribe(params  => {
       this.idUsuario = params['idUsuario'];
-      if(this.idUsuario == this.storage.recuperar('idUsuario')){
+      debugger;
 
         this._http.getProjectsUsers(this.idUsuario,).subscribe(
         (data: Project[]) => {
@@ -44,8 +44,9 @@ export class ListUserComponent implements OnInit , OnDestroy {
         () => console.log('Completed'),
         );  
 
-      }
-      this.router.navigate(['/']);
+//        this.router.navigate(['/']);
+      
+    
       
     });
   }
